@@ -1,0 +1,346 @@
+@font-face {
+    font-family: comfortaa;
+    src: url(https://fonts.googleapis.com/css?family=Comfortaa&display=swap);
+}
+
+:root {
+    font-family: comfortaa, sans-serif, serif;
+    box-sizing: border-box;
+}
+
+*, ::after, ::before {
+    box-sizing: inherit;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.p {
+    margin-top: 3px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.saludo {
+    display: block;
+    font-size: 1.8em;
+}
+
+.display {
+    position: relative;
+    width: 100vw;
+    height: 4rem;
+    margin-bottom: .5em;
+    outline: none;
+    font-size: 2.5rem;
+    text-align: right;
+    border: 1px solid darkgray;
+}
+
+.span-display {
+    transition: all .6s;
+    position: absolute;
+    display: block;
+    right: 1rem;
+    bottom: -.4rem;
+}
+
+.move-operandos {
+    transition: all .6s;
+    top: -.1rem;
+    font-size: 1.4rem;
+    color: darkgray;
+}
+
+.sup {
+    position: absolute;
+    font-size: 1rem;
+}
+
+.igual {
+    margin-left: .6rem;
+}
+
+.font-small {
+    bottom: -.2rem;
+    font-size: 1.4rem;
+}
+
+.botones {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 80px);
+    grid-gap: 1px;
+}
+
+.btn {
+    border: none;
+    background-color: darkcyan;
+    color: #fff;    
+    font-size: 1.5rem;
+}
+
+.num {
+    background-color: #00796B
+}
+
+@media(orientation: landscape) {
+
+    .header {
+        height: 3rem;
+    }
+
+    .p {
+        font-size: 1rem;
+    }
+
+    .saludo {
+        font-size: 1rem;
+    }
+
+    .display {
+        margin-bottom: .1rem;
+    }
+
+    .botones {
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(4, 60px);
+    }
+
+    .num-7 {
+        grid-column: 1 / 1;
+        grid-row: 1;
+    }
+
+    .num-8 {
+        grid-column: 2 / 2;
+        grid-row: 1;
+    }
+
+    .num-9 {
+        grid-column: 3 / 3;
+        grid-row: 1;
+    }
+
+    .num-4 {
+        grid-column: 1 / 1;
+        grid-row: 2;
+    }
+
+    .num-5 {
+        grid-column: 2 / 2;
+        grid-row: 2;
+    }
+
+    .num-6 {
+        grid-column: 3 / 3;
+        grid-row: 2;
+    }
+
+    .num-3 {
+        grid-column: 3 / 3;
+        grid-row: 3;
+    }
+
+    .num-2 {
+        grid-column: 2 / 2;
+        grid-row: 3;
+    }
+
+    .num-1 {
+        grid-column: 1 / 1;
+        grid-row: 3;
+    }
+
+    .num-0 {
+        grid-column: 1 / 1;
+        grid-row: 4;
+    }
+
+    .dot {
+        grid-column: 2 / 2;
+        grid-row: 4;
+    }
+
+    .btn-igual {
+        grid-column: 3 / 3;
+        grid-row: 4;
+    }
+
+    .signo-division {
+        grid-column: 4 / 4;
+        grid-row: 1;
+    }
+
+    .signo-multiplicacion {
+        grid-column: 4 / 4;
+        grid-row: 2;
+    }
+
+    .signo-mas {
+        grid-column: 4 / 4;
+        grid-row: 3;
+    }
+
+    .signo-menos {
+        grid-column: 4 / 4;
+        grid-row: 4;
+    }
+
+}
+
+@media(min-width: 768px) {
+    
+    .header {
+        margin-top: 2rem;
+        height: auto;
+    }
+
+    .p {
+        font-size: 1.2rem;
+    }
+
+    .saludo {
+        font-size: 1.8rem;
+    }
+
+    .calc {
+        width: 400px;
+        margin: auto;
+        padding: 1rem;
+        border: 2px solid darkgray;
+    }
+
+    .display {
+        margin-bottom: .5rem;
+        width: auto;
+    }
+
+    .botones {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(6, 80px);
+    }
+
+    .inverso {
+        grid-column: 1 / 1;
+        grid-row: 1;
+    }
+
+    .cuadrado {
+        grid-column: 2 / 2;
+        grid-row: 1;
+    }
+
+    .potencia {
+        grid-column: 3 / 3;
+        grid-row: 1;
+    }
+
+    .int {
+        grid-column: 4 / 4;
+        grid-row: 1;
+    }
+
+    .radic {
+        grid-column: 1 / 1;
+        grid-row: 2;
+    }
+
+    .pos-neg {
+        grid-column: 2 / 2;
+        grid-row: 2;
+    }
+
+    .percent {
+        grid-column: 3 / 3;
+        grid-row: 2;
+    }
+
+    .clear {
+        grid-column: 4 / 4;
+        grid-row: 2;
+    }
+
+    .num-7 {
+        grid-column: 1 / 1;
+        grid-row: 3;
+    }
+
+    .num-8 {
+        grid-column: 2 / 2;
+        grid-row: 3;
+    }
+
+    .num-9 {
+        grid-column: 3 / 3;
+        grid-row: 3;
+    }
+
+    .signo-division {
+        grid-column: 4 / 4;
+        grid-row: 3;
+    }
+
+    .num-4 {
+        grid-column: 1 / 1;
+        grid-row: 4;
+    }
+
+    .num-5 {
+        grid-column: 2 / 2;
+        grid-row: 4;
+    }
+
+    .num-6 {
+        grid-column: 3 / 3;
+        grid-row: 4;
+    }
+
+    .signo-multiplicacion {
+        grid-column: 4 / 4;
+        grid-row: 4;
+    }
+
+    .num-1 {
+        grid-column: 1 / 1;
+        grid-row: 5;
+    }
+
+    .num-2 {
+        grid-column: 2 / 2;
+        grid-row: 5;
+    }
+
+    .num-3 {
+        grid-column: 3 / 3;
+        grid-row: 5;
+    }
+
+    .signo-mas {
+        grid-column: 4 / 4;
+        grid-row: 5;
+    }
+
+    .num-0 {
+        grid-column: 1 / 1;
+        grid-row: 6;
+    }
+
+    .dot {
+        grid-column: 2 / 2;
+        grid-row: 6;
+    }
+
+    .btn-igual {
+        grid-column: 3 / 3;
+        grid-row: 6;
+    }
+
+    .signo-menos {
+        grid-column: 4 / 4;
+        grid-row: 6;
+    }
+
+}

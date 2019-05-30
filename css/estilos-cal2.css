@@ -1,0 +1,82 @@
+header {
+	text-align: center;
+}
+
+section {
+	text-align: center;
+}
+
+#msj {
+	text-align: center;
+	font-size: 1.3em;
+	color: #086A87;
+	
+}
+
+.nums {
+	font-size: 1.3em;
+	text-align: center;
+}
+
+.btns {
+	height: 50px;
+	width: 75px;
+	background-color: #0B610B;
+	color: white;
+	border-radius: 5px 5px 5px 5px;
+}
+
+.btnsn {
+	height: 50px;
+	width: 75px;
+	background-color: #8A084B;
+	color: white;
+	border-radius: 5px 5px 5px 5px;
+}
+
+.btnsn:hover {
+	background-color: #3B0B24;
+}
+
+.btns:hover {
+	background-color: #0A2A0A;
+}
+
+#btnigual {
+	height: 50px;
+	width: 75px;
+	background-color: #0489B1;
+	color: white;
+	border-radius: 5px 5px 5px 5px;	
+}
+
+#btnigual:hover {
+	background-color: #0A2229;
+}
+
+#column {
+	border: 2px solid black;
+	border-radius: 7px 7px 7px 7px;
+	padding-top: 18px;
+	padding-bottom: 12px;
+	background-color: #1B1432;
+	max-width: 500px;
+	min-width: 400px;
+}
+
+#display {
+	border-radius: 5px 5px 5px 5px;
+	height: 40px;
+	width: 300px;
+	background-color: #F2F2F2;
+	color: #0B4C5F;
+	font-weight: bold;
+	font-size: 1.5em;
+	text-align: right;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		Calculadora JQuery
+	</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/estilos-cal2.css">
+</head>
+<body>
+	<br />
+	<br />
+	<header>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<p id="msj"></p>					
+				</div>
+			</div>
+		</div>
+	</header>
+	<section>
+		<div class="container">
+			<div class="row" id="fila">
+				<div class="col-lg-4 col-lg-push-4 col-md-5 col-md-push-3 col-sm-6 col-sm-push-3 col-xs-6 col-xs-push-3" id="column">
+				<input type="text" placeholder="0" id="display" readonly=""></input>
+				<br />
+				<br />
+				<button class="btns" id="inverso">
+					<p class="nums">
+						<sup>1</sup>
+						&#8725;
+						<sub>x</sub>
+					</p>
+				</button>
+				<button class="btns" id="cuadrado">
+					<p class="nums">
+						x
+						<sup>2</sup>
+					</p>
+				</button>
+				<button class="btns" id="xy">
+					<p class="nums">
+						x
+						<sup>y</sup>
+					</p>
+				</button>
+				<button class="btns" id="int">
+					<p class="nums">
+						Int
+					</p>
+				</button>
+				<button class="btns" id="raiz">
+					<p class="nums">
+						&radic;
+					</p>
+				</button>
+				<button class="btns" id="posneg">
+					<p class="nums">
+						&plusmn;
+					</p>
+				</button>
+				<button class="btns" id="2n">
+					<p class="nums">
+						2<sup>n</sup>
+					</p>
+				</button>
+				<button class="btns" id="reset">
+					<p class="nums">
+						c
+					</p>
+				</button>
+				<button class="btns" id="fact">
+					<p class="nums">
+						n!
+					</p>
+				</button>
+				<button class="btns" id="csvm">
+					<p class="nums">
+						csv(*)
+					</p>
+				</button>
+				<button class="btns" id="csvs">
+					<p class="nums">
+						csv(+)
+					</p>
+				</button>
+				<button class="btns" id="coma">
+					<p class="nums">
+						,
+					</p>
+				</button>
+				<button class="btnsn" id="7">
+					<p class="nums">
+						7
+					</p>
+				</button>
+				<button class="btnsn" id="8">
+					<p class="nums">
+						8
+					</p>
+				</button>
+				<button class="btnsn" id="9">
+					<p class="nums">
+						9
+					</p>
+				</button>
+				<button class="btns" id="prod">
+					<p class="nums">
+						&#42;
+					</p>
+				</button>
+				<button class="btnsn" id="4">
+					<p class="nums">
+						4
+					</p>
+				</button>
+				<button class="btnsn" id="5">
+					<p class="nums">
+						5
+					</p>
+				</button>
+				<button class="btnsn" id="6">
+					<p class="nums">
+						6
+					</p>
+				</button>
+				<button class="btns" id="divi">
+					<p class="nums">
+						/
+					</p>
+				</button>
+				<button class="btnsn" id="1">
+					<p class="nums">
+						1
+					</p>
+				</button>
+				<button class="btnsn" id="2">
+					<p class="nums">
+						2
+					</p>
+				</button>
+				<button class="btnsn" id="3">
+					<p class="nums">
+						3
+					</p>
+				</button>
+				<button class="btns" id="mas">
+					<p class="nums">
+						+
+					</p>
+				</button>
+				<button class="btnsn" id="0">
+					<p class="nums">
+						0
+					</p>
+				</button>
+				<button class="btnsn" id="punto">
+					<p class="nums">
+						.
+					</p>
+				</button>
+				<button id="btnigual">
+					<p class="nums">
+						=
+					</p>
+				</button>
+				<button class="btns" id="menos">
+					<p class="nums">
+						-
+					</p>
+				</button>
+			</div>
+			</div>
+		</div>
+	</section>
+	<!--footer>
+		By Sam
+	</footer-->
+	<script type="text/javascript">
+			var fecha = new Date();
+      		var msj;
+      		if (fecha.getHours() < 7) {
+      			msj = "Buenas noches!!!";
+      		} else if (fecha.getHours() < 12) {
+      			msj = "Buenos días!!!";
+      		} else if (fecha.getHours() < 21) {
+      			msj = "Buenas tardes!!";
+      		} else {
+      			msj = "Buenas noches!!!";
+      		}
+      		document.getElementById("msj").innerHTML = msj + "<br /> Bienvenido a la calculadora de <br /> Samuel Arizmendi Abundis" ;
+	</script>
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/logica2.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+.navbar {
+	background-color: #B40486;
+}
+
+.navbar-default .navbar-header > a {
+	color: black;
+}
+
+#menu .navbar-nav > li > a {
+	color: black;
+}
+
+.textos {
+	color: black;
+}
+
+li:hover {
+	background-color: #8A084B;
+}
+
+#menu .navbar-nav > .active > a{
+	background-color: #8A0868;
+}
+
+.navbar-nav > li > .dropdown-menu {
+	background-color: #B40486;
+}
+
+.dropdown-menu > li > a:hover {
+	background-color: #8A084B;
+}
+
+p {
+	font-size: 2.5em;
+	color: #0A92B1;
+}
