@@ -1,7 +1,7 @@
 let fecha = new Date(), saludo = $('#saludo'), display = $("#display"), operandos = $("#operandos"), resultado = $("#resultado"), operador = "", inverso = $("#inverso"), 
-cuadrado = $("#cuadrado"), xy = $("#xy"), int = $("#int"), raiz = $("#raiz"), posneg = $("#pos-neg"), dosn = $("#2n"), reset = $("#reset"), fact = $("#fact"), csvm =$("#csvm"),
-csvs = $("#csvs"), coma = $("#coma"), siete = $("#7"), 	ocho = $("#8"), nueve = $("#9"), prod = $("#prod"), cuatro = $("#4"), cinco = $("#5"), seis = $("#6"), divi = $("#divi"),
-uno = $("#1"), dos = $("#2"), tres = $("#3"), mas = $("#mas"), cero = $("#0"), punto = $("#punto"), igual = $("#btnigual"), menos = $("#menos")
+cuadrado = $("#cuadrado"), potencia = $("#potencia"), int = $("#int"), raiz = $("#raiz"), posneg = $("#pos-neg"), percent = $("#percent"), clear = $("#clear"), toN = $("#toN"),
+factorial = $("#factorial"), _csvProducto = $("#csv-producto"), _csvSuma = $("#csv-suma"), division = $("#signo-division"), producto = $("#signo-multiplicacion"),
+_signoMas = $("#signo-mas"), dot = $("#dot"), coma = $("#coma"), _signoMenos = $("#signo-menos"), igual = $("#btnigual")
 
 if (fecha.getHours() < 12) {
     showMsj("Buenos días");
@@ -38,7 +38,7 @@ cuadrado.on("click", () => {
 })
 
 /** POTENCIA **/
-document.getElementById("potencia").addEventListener("click", () => {
+potencia.on("click", () => {
     operador = "^";
     operandos.html(operandos.html() + " ^ ");    
 })
@@ -55,22 +55,19 @@ int.on("click", () => {
 });
 
 /** RAIZ **/
-document.getElementById("raiz").addEventListener("click", () => {
+raiz.on("click", () => {
     if (operandos.html() === "0") {
         operandos.html("&radic; ")
         operador = "R";
     } else {
         let numero = +operandos.html();
-        addClass();
-        operandos.html("&radic;" + operandos.html() + " = ")
-        resultado.html(raiz(numero))
+        operandos.html("&radic;" + operandos.html() )
+        pintaResultado(raizCuadrada(numero))
     }
 });
 
 /** POSITIVO NEGATIVO **/
-posneg.on("click", () => {
-    console.log("posneg");
-    
+posneg.on("click", () => {    
     let numero = +operandos.html()
     if (operandos.html() === "0") {
         operandos.html("-")
@@ -82,11 +79,11 @@ posneg.on("click", () => {
 });
 
 /** PORCENTAJE **/
-document.getElementById("percent").addEventListener("click", () => {
+percent.on("click", () => {
     if (operandos.html() !== "0") {
         operador = "%";
         operandos.html( operandos.html() + " % ")
-    }
+    } 
 });
 
 /** LIMPIAR **/
@@ -96,28 +93,73 @@ clear.on("click", () => {
     resultado.html("")
 });
 
-/** MULTIPLICACIÓN **/
-document.getElementById("signo-multiplicacion").addEventListener("click", () => {
-    operador = "*"
-    operandos.innerHTML += " * ";
-});
+/** POTENCIA 2 DE N **/
+toN.on("click", () => {
+    if (operandos.html() !== "0") {
+        let numero = +operandos.html();
+        operandos.append("<sup class='sup'>2</sup>")
+        pintaResultado(Math.pow(2, numero))
+        addClass();
+    }
+})
+
+/** FACTORIAL **/
+factorial.on("click", () => {
+    if (operandos.html() !== "0") {
+        let numero = +operandos.html()
+        let facto = 1;
+        for (let i = 0; i < numero; i++) {
+            facto += facto * i;
+        }
+        operandos.html(operandos.html() + "!")
+        pintaResultado(facto);
+    }
+})
+
+/** PRODUCTO CSV **/
+_csvProducto.on("click", () => {
+    if (operandos.html() !== "0") {
+        array = operandos.html().split(",")
+        let acumulado = 1;
+        for (let i = 0; i < array.length; i++) {
+            acumulado *= +array[i];
+        }
+        /*addClass()
+        operandos.html(operandos.html() + " = ")*/
+        pintaResultado(acumulado)
+    }
+})
+
+/** SUMA CSV **/
+_csvSuma.on("click", () => {
+    if (operandos.html() !== "0") {
+        array = operandos.html().split(",")
+        let acumulado = 0;
+        for (let i = 0; i < array.length; i++) {
+            acumulado += +array[i];
+        }
+        /*addClass()
+        operandos.html(operandos.html() + " = ")*/
+        pintaResultado(acumulado)
+    }
+})
 
 /** DIVISIÓN **/
-document.getElementById("signo-division").addEventListener("click", () => {
+division.on("click", () => {
     operador = "/"
-    operandos.innerHTML += " / ";
+    operandos.html(operandos.html() + " / ")
+});
+
+/** MULTIPLICACIÓN **/
+producto.on("click", () => {
+    operador = "*"
+    operandos.html(operandos.html()  + " * ");
 });
 
 /** SIGNO MAS **/
-document.getElementById("signo-mas").addEventListener("click", () => {
+_signoMas.on("click", () => {
     operador = "+";
-    operandos.innerHTML += " + ";
-});
-
-/** SIGNO MENOS **/
-document.getElementById("signo-menos").addEventListener("click", () => {
-    operador = "-";
-    operandos.innerHTML += " - ";
+    operandos.html(operandos.html() + " + ")
 });
 
 /** PUNTO **/
@@ -126,6 +168,17 @@ document.getElementById("dot").addEventListener("click", () => {
         operandos.html("")
     }
     operandos.html(operandos.html() + ".")
+});
+
+/** COMA **/
+coma.on("click", () => {
+    operandos.html(operandos.html() + ", ")
+})
+
+/** SIGNO MENOS **/
+_signoMenos.on("click", () => {
+    operador = "-";
+    operandos.html(operandos.html() + " - ")
 });
 
 /** IGUAL **/
@@ -181,10 +234,9 @@ function operacionAritmetica() {
             res = raizCuadrada(+cadena[1]);
         break;
     }
-    if (res.toString().length > 14) {
-        resultado.addClass("font-small")
-    }
-    resultado.html(res)
+
+    pintaResultado(res);
+
 }
 
 function raizCuadrada(num) {
@@ -193,4 +245,13 @@ function raizCuadrada(num) {
     } else {
         return Math.sqrt(+num);
     }
+}
+
+function pintaResultado(res) {
+    if (res.toString().length > 14) {
+        resultado.addClass("font-small")
+    }
+    addClass();
+    operandos.html(operandos.html() + " = ")
+    resultado.html(res)
 }
